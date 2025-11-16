@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head><title>Job <%= job._id %></title></head>
+<body>
+  <h2>Job <%= job._id %> - <%= job.status %></h2>
+  <p><a href="/dashboard">Back</a></p>
+  <h3>Leads</h3>
+  <table border="1">
+    <tr><th>Row</th><th>Status</th><th>Message</th><th>Screenshot</th></tr>
+    <% leads.forEach(l => { %>
+      <tr>
+        <td><%= l.rowNumber %></td>
+        <td><%= l.status %></td>
+        <td><%= l.message %></td>
+        <td><% if (l.screenshotPath) { %><a href="<%= l.screenshotPath %>">View</a><% } %></td>
+      </tr>
+    <% }) %>
+  </table>
+</body>
+</html>
