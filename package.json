@@ -2,11 +2,21 @@
   "name": "leadboost",
   "version": "1.0.0",
   "main": "server.js",
-  "scripts": { "start": "node server.js" },
+  "scripts": {
+    "start": "node server.js",
+    "worker": "node worker.js"
+  },
   "dependencies": {
-    "express": "^4.19.2",
+    "bcrypt": "^5.1.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "mongoose": "^7.3.0",
     "multer": "^1.4.5-lts.1",
     "xlsx": "^0.18.5",
-    "ejs": "^3.1.9"
+    "puppeteer": "^21.4.0",
+    "uuid": "^9.0.0"
   }
 }
