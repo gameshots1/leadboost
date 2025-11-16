@@ -1,5 +1,27 @@
-<h1>Dashboard</h1>
-<form action="/upload" method="POST" enctype="multipart/form-data">
-  <input type="file" name="sheet" />
-  <button>Upload</button>
-</form>
+<!doctype html>
+<html>
+<head><title>Dashboard</title></head>
+<body>
+  <h2>Welcome <%= currentUser ? currentUser.email : '' %></h2>
+  <p><a href="/logout">Logout</a> <% if (currentUser && currentUser.isAdmin) { %> | <a href="/admin">Admin</a> <% } %></p>
+
+  <h3>Target Website Credentials</h3>
+  <form method="post" action="/save_site_creds">
+    <input name="site_username" placeholder="Target site username (mobile)" value="<%= default_username || '' %>" /><br/>
+    <input name="site_password" placeholder="Target site password" /><br/>
+    <button>Save Site Credentials</button>
+  </form>
+
+  <h3>Upload Leads (.xlsx)</h3>
+  <form method="post" action="/upload" enctype="multipart/form-data">
+    <input type="file" name="leadsfile" accept=".xlsx,.xls,.csv" required /><br/>
+    <button>Upload & Queue</button>
+  </form>
+
+  <h3>Your Jobs</h3>
+  <ul>
+    <% const jobs = []; %>
+    <% /* We will not load jobs here to keep UI minimal; use admin or job link */ %>
+  </ul>
+</body>
+</html>
